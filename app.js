@@ -17,3 +17,11 @@ app.use(express.static("./public"));
 app.listen(3500);
 
 console.log("Express Server has been started on port 3500");
+
+var mongoose = require('mongoose');
+
+var dbUrl = 'mongodb+srv://annotator:annotatortest@cluster0-p6tpe.mongodb.net/test?retryWrites=true'
+
+mongoose.connect(dbUrl, { useNewUrlParser: true }, (err) => {
+	console.log('MongoDB Connection', err);
+})
