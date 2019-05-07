@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="js/autofill.js"> </script>
+<link rel="stylesheet" href="/css/autocomplete.css"/>
+</head>     
+<body>
+
+<h2>CSIRO Annotator Dictionary</h2>
+
+
+
+<!--Make sure the form has the autocomplete function switched off:-->
+<form autocomplete="off">
+  <div class="autocomplete" style="width:300px;">
+    <input id="myWord" type="text" name="searchWord" placeholder="Search Definition">
+  </div>
+  <input type="submit">
+</form>
+
+<script>
+  /*An array containing recently search words:*/
+var autofill = ["Actinium","Aluminum","Americium","Antimony","Argon","Arsenic","Astatine","Barium","Berkelium","Bromine","Cadmium" ,"Calcium" ,"Californium"];
+
+/*Initilaizting the Autcomplete function on myWord and using the above autofill array as an arguement*/
+autocomplete(document.getElementById("myWord"), autofill);
+</script>
+
+</body>
+</html>

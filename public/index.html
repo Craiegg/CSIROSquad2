@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSIRO Annotator Dictionary</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+	<script src="/js/autofill.js"> </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Dictionary</h1>
+    </div>
+	<form autocomplete="off">
+    <div class="wrapper">
+        <div class="words">
+            <div class="input-group p-4">
+			<div class= "autocomplete">
+                <input type="text" class="form-control" id="myWord" placeholder="Search..." aria-label="Search"
+                    aria-describedby="basic-addon1">
+					</div>
+            </div>
+            <div class="row">
+                <div class="col text-center mb-4">
+                    <input type="Submit" onclick="search()">
+                </div>
+            </div>
+        </div>
+    </div>
+	</form>
+	
+    <!-- <div class="container">
+        <div class="jumbotron">
+            <input type="text" placeholder="Search">
+            <button class="btn btn-primary">Search</button>
+        </div>
+    </div> -->
+	
+<script>
+  /*An array containing recently search words:*/
+var autofill = ["Actinium","Aluminum","Americium","Antimony","Argon","Arsenic","Astatine","Barium","Berkelium","Bromine","Cadmium" ,"Calcium" ,"Californium"];
+
+/*Initilaizting the Autcomplete function on myWord and using the above autofill array as an arguement*/
+autocomplete(document.getElementById("myWord"), autofill);
+</script>
+</body>
+
+</html>
