@@ -189,7 +189,7 @@ var axios = require('axios')
 //var socket = io()
 
 var words = []
-var savedWords = []
+var savedWords = [{name : "", description:""}]
     // Document ready function
     $(() => {
         // Button Click function
@@ -209,6 +209,8 @@ var savedWords = []
       var carddiv = document.createElement("div")
       carddiv.setAttribute("class","card")
       for (var i = 0; i<words.length; i++){
+        var wName = word[i].label;
+        var wDescription = word[i].definition;
         //$("#words").append(`<h4 class="card-title"> ${word[i].label} </h4> <P> ${word[i].definition} </p>`)
         var carddiv = document.createElement("div")
         carddiv.setAttribute("class","card")
@@ -236,9 +238,9 @@ var savedWords = []
         cardbody.appendChild(saveBtn)
         carddiv.appendChild(cardbody)
         saveBtn.onclick = function (){
-          savedWords.push({name:tt, description:pt});
+          //savedWords.push({name:tt, description:pt});
           //savedWords.description = pt;
-          showSavedWords();
+          showSavedWords(wName,wDescription);
         }
         $("#words").append(carddiv)
       }
@@ -247,15 +249,26 @@ var savedWords = []
       while(words.length > 0) {
         words.pop();
       }
-        // console.log(words)
     }
 
-    function showSavedWords(){
-      for(var j = 0; j<savedWords.length; j++){
-        $("#savedWords").append(savedWords[j].name)
-        console.log(savedWords[j].name)
-      }
+    function showSavedWords(x,y){
+      //for(let j = 0; j<savedWords.length; j++){
+        // $("#savedWords").append('<h4>' + savedWords[j].name + '</h4>')
+        //console.log(savedWords[j].name)
+      //}
+
+      var savedWordTitle = document.createElement('h4')
+      var savedWordTitleText = document.createTextNode(x)
+      savedWordTitle.appendChild(savedWordTitleText)
+      var savedWordDefinition = document.createElement('p')
+      var savedWordDefinitionText = document.createTextNode(y)
+      savedWordDefinition.appendChild(savedWordDefinitionText)
+      $("#savedWords").append(savedWordTitle)
+      $("#savedWords").append(savedWordDefinition)
+
     }
+
+    //console.log(savedWords)
 
     function getWords(){
         $.get('http://localhost:3000/words',(data) => {
@@ -292,6 +305,7 @@ var savedWords = []
             });
             
           console.log("ok");
+          console.log(savedWords)
         })
         .catch(error => {
           console.log(error);
