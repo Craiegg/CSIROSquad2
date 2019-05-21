@@ -265,7 +265,8 @@
             var savedWordDefinitionText = document.createTextNode(y)
             savedWordDefinition.appendChild(savedWordDefinitionText)
            
-          
+            var card = '<div class="card m-4 bg-info text-white"><div class="card-body"><h5 class="card-title">' + savedWordTitle.innerText + '</h5><p class="card-text">' + savedWordDefinition.innerHTML + '</p></div></div>'
+            $("#savedWords").append(card)
         }
 
         //console.log(savedWords)
