@@ -230,7 +230,7 @@
                 var selectBtnText = document.createTextNode("select")
                 selectBtn.appendChild(selectBtnText);
                 var saveBtn = document.createElement("button")
-                saveBtn.setAttribute("class", "btn btn-primary")
+                saveBtn.setAttribute("class", "btn btn-primary ml-4")
                 var saveBtnText = document.createTextNode("save")
                 saveBtn.appendChild(saveBtnText);
                 cardbody.appendChild(title)
