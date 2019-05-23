@@ -9,46 +9,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- <script src="/socket.io/socket.io.js"></script> -->
-    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="/dist/myScript.js"></script>
-    <script src="/dist/autofill.js"></script>
+	<script src="/dist/autofill.js"></script>
     <title>CSIRO Annotator </title>
 </head>
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1>CSIRO Dictionary Application</h1>
+            <h1>Dictionary</h1>
             <br>
-            
+			
             <div class="autcomplete">
-            <input id="searchWord" type="text" class="form-control" placeholder="Search Word">
+			<input id="searchWord" type="text" class="form-control" placeholder="Search Word">
             <br>
-            </div>
+			</div>
             <button id="search" class="btn btn-primary">Search</button>
-            
-            </form>
+			
+			</form>
         </div>
-        <section class="features-icons text-center" id="table_holder" style="display:  show;">
-        
-         <table class="table ">
-            <thead class="thead-dark">
-              
-            </thead>
-            <tbody class="items_table" id="words">
+        <div id="words">
 
-            </tbody>
-              
-          </table>
-          <div id="userDefinedWords">
-                    <h4 id="savedWords">
-                    </h4>
-                    </div>
         </div>
     </div>
+
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title" id="dialog-title">Modal Heading</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body" id="dialog-content">
+              Modal body..
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+      
+          </div>
+        </div>
+      </div>
 </body>
 <script>
 /*An array containing recently search words:*/
-var autofill = ["Actinium","Aluminum","Americium","Antimony","Argon","Arsenic","Astatine","Barium","Berkelium","Bromine","Cadmium" ,"Calcium" ,"Californium","Oxygen","Blood","Methane","Inflammation"];
+var autofill = ["Actinium","Aluminum","Americium","Antimony","Argon","Arsenic","Astatine","Barium","Berkelium","Bromine","Cadmium" ,"Calcium" ,"Californium"];
 
 /*Initilaizting the Autcomplete function on myWord and using the above autofill array as an arguement*/
 autocomplete(document.getElementById("searchWord"), autofill);

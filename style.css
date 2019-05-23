@@ -2,74 +2,118 @@ html, body {
     height: 100%;
 }
 
-
-.features-icons.bg-light{
-  background-color: #ffffff;
+body, h1 {
+    margin: 0;
+    font-family: Arial;
 }
 
-.features-icons {
-  
-  padding-bottom: 7rem;
-}
-s
-.features-icons .features-icons-item {
-  max-width: 20rem;
+h1 {
+    margin: 10px 0;
+    color: darkblue;
 }
 
-.features-icons .features-icons-item .features-icons-icon {
-  height: 7rem;
+body {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
-.features-icons .features-icons-item .features-icons-icon i {
-  font-size: 4.5rem;
+dl {
+
+    border: double;
+    padding: 1em;
+    display: block;
+    width: 80%;
 }
 
-.features-icons .features-icons-item:hover .features-icons-icon i {
-  font-size: 5rem;
+dl + p {
+    display: none;
 }
 
-.testimonials .testimonial-item img {
-  max-width: 12rem;
-  -webkit-box-shadow: 0px 5px 5px 0px #adb5bd;
-  box-shadow: 0px 5px 5px 0px #adb5bd;
+dl:empty {
+    display: none;
 }
 
-.call-to-action {
-  position: relative;
-  background-color: #343a40;
-  background: url("../img/bg-masthead.jpg") no-repeat center center;
-  background-size: cover;
-  padding-top: 7rem;
-  padding-bottom: 7rem;
+dl:empty + p {
+    color: red;
+    display: block;
 }
 
-.call-to-action .overlay {
-  position: absolute;
-  background-color: #212529;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.3;
+dt:hover {
+    color: red;
+    cursor: pointer;
 }
 
-footer.footer {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-
+dt {
+    font-family: fantasy;
+    font-size: 1.5em;
+    color: darkslateblue
 }
 
-.autocomplete-items {
-   border: 2px solid #90b7fb;
-   margin-bottom: 5px;
-   padding-left: 7px;
-   background-color: #ffffff;
-   position: relative;
-   top:-32px;
-   background-clip: padding-box;
-   border-radius: .25rem;
+dd {
+    font-family: verdana;
+    margin: 0 0 10px 55px;
+    font-size: 1em;
 }
 
-.btn-info{
-  margin-right: 30px;
+form {
+    background-color: darkslateblue;
+    color: white;
+    padding: 1em;
+    width: 80%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+}
+
+input, button {
+    margin: 0 1em;
+    padding: .5em;
+}
+
+input:first-of-type {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+}
+
+input:last-of-type {
+    -webkit-box-flex: 4;
+    -webkit-flex-grow: 4;
+        -ms-flex-positive: 4;
+            flex-grow: 4;
+}
+
+button {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    background-color: transparent;
+    outline: none;
+    border: solid 1px;
+    color: white;
+}
+
+button:hover {
+    color: yellow;
 }

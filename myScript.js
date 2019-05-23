@@ -190,25 +190,21 @@ var axios = require('axios')
 
 var words = []
 var savedWords = [{name : "", description:""}]
-var counter = false;
+    // Document ready function
     $(() => {
-
+        // Button Click function
+        //This function will call the adapter when user insert word in search box and click the search button
         $("#search").click(()=>{
-				document.getElementById("words").innerHTML= ""
-            
-            var word = {label : $("#searchWord").val()}
-			
-            // Calling the function for saving searched word to database 
-            postWord(word)                         
-            adapter($("#searchWord").val())
 
+            //clear the inner HTML of <div id="words"></div>
+            document.getElementById("words").innerHTML = ""
+            //var word = {label : $("#searchWord").val()}
+            adapter($("#searchWord").val())
         })
-        
     })
 
-   
-	
-       function addWords(word){
+    //this function will append the search result from an array to a div and clear the existing array
+    function addWords(word){
       // appending data from words array to a div
       var carddiv = document.createElement("div")
       carddiv.setAttribute("class","card")
@@ -217,7 +213,7 @@ var counter = false;
         var wDescription = word[i].definition;
         //$("#words").append(`<h4 class="card-title"> ${word[i].label} </h4> <P> ${word[i].definition} </p>`)
         var carddiv = document.createElement("div")
-        carddiv.setAttribute("class","card  mt-2 mb-2 text-white bg-dark")
+        carddiv.setAttribute("class","card")
         var cardbody = document.createElement("div")
         cardbody.setAttribute("class","card-body")
         var title = document.createElement("h4")
@@ -230,11 +226,11 @@ var counter = false;
         paragraph.appendChild(pt)
         var selectBtn = document.createElement("button")
         selectBtn.setAttribute("class", "btn btn-info")
-	      var selectBtnText = document.createTextNode("Select")
+	      var selectBtnText = document.createTextNode("select")
         selectBtn.appendChild(selectBtnText);
         var saveBtn = document.createElement("button")
-        saveBtn.setAttribute("class", "btn btn-primary ml-4")
-	      var saveBtnText = document.createTextNode("Save")
+        saveBtn.setAttribute("class", "btn btn-primary")
+	      var saveBtnText = document.createTextNode("save")
 	      saveBtn.appendChild(saveBtnText);
         cardbody.appendChild(title)
         cardbody.appendChild(paragraph)
@@ -256,7 +252,10 @@ var counter = false;
     }
 
     function showSavedWords(x,y){
-
+      //for(let j = 0; j<savedWords.length; j++){
+        // $("#savedWords").append('<h4>' + savedWords[j].name + '</h4>')
+        //console.log(savedWords[j].name)
+      //}
 
       var savedWordTitle = document.createElement('h4')
       var savedWordTitleText = document.createTextNode(x)
@@ -264,34 +263,31 @@ var counter = false;
       var savedWordDefinition = document.createElement('p')
       var savedWordDefinitionText = document.createTextNode(y)
       savedWordDefinition.appendChild(savedWordDefinitionText)
-
-      var card = '<div class="card m-4 bg-info text-white"><div class="card-body"><h5 class="card-title">' + savedWordTitle.innerText + '</h5><p class="card-text">' + savedWordDefinition.innerHTML + '</p></div></div>'
-      $("#savedWords").append(card)
+      $("#savedWords").append(savedWordTitle)
+      $("#savedWords").append(savedWordDefinition)
 
     }
-	
+
+    //console.log(savedWords)
+
     function getWords(){
         $.get('http://localhost:3000/words',(data) => {
            data.forEach(addWords);
         })
     }
-
-     function getLabel(){
-        $.get('http://localhost:3000/getLabel',(data) => {
-           data.forEach(addWords);
-        })
-    }
-	
-    function postWord(word){
-        // console.log('what is happening' + word)
-        $.post('http://localhost:3000/', word)
-    }
-
+    // function postWord(word){
+    //     // console.log('what is happening' + word)
+    //     $.post('http://localhost:3000/words', word)
+    // }
 
     var searchResult = []
     
-
-function  adapter(searchWord){
+    //This adapter function will take the search word and get data from API
+    //Using axios to get data from API
+    //after getting data this function will keep data to words array
+    //after putting all data to an array this function will call addWords function 
+    //and passing words array in the parameter to display the stored data
+    function  adapter(searchWord){
         axios.get('http://data.bioontology.org/search?q='+searchWord+'&apikey=0233b5cd-3109-40a0-b575-348de5c3fe3e')
         .then(response => {
             var result = response.data.collection.forEach(collection => {
